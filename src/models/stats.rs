@@ -27,10 +27,6 @@ pub struct PeriodParams {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub end_date: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub limit: Option<i64>,
 }
 

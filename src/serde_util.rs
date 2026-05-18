@@ -1,8 +1,3 @@
-// The IFPA API returns numeric and boolean values inconsistently — sometimes as
-// native JSON types, sometimes as strings, and sometimes as null. These helpers
-// let serde handle all three representations transparently.
-#![allow(dead_code)]
-
 use serde::{Deserialize, Deserializer};
 
 pub(crate) fn string_or_i64<'de, D: Deserializer<'de>>(d: D) -> Result<i64, D::Error> {

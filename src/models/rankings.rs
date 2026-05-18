@@ -1,55 +1,17 @@
 use serde::{Deserialize, Serialize};
 
-// Shared pagination params for ranking endpoints
-
-#[derive(Debug, Clone, Default, Serialize)]
-pub struct RankingsParams {
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
-    pub start_pos: Option<i64>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
-    pub count: Option<i64>,
-}
+use super::common::PaginationParams;
 
 #[derive(Debug, Clone, Default, Serialize)]
 pub struct CountryRankingsParams {
     pub country: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub start_pos: Option<i64>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub count: Option<i64>,
 }
 
-#[derive(Debug, Clone, Default, Serialize)]
-pub struct CustomRankingsParams {
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
-    pub start_pos: Option<i64>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
-    pub count: Option<i64>,
-}
+pub type CustomRankingsParams = PaginationParams;
 
 // GET /rankings/wppr
 

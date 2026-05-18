@@ -4,15 +4,11 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
-pub struct PlayersResponse {
-    pub player: Vec<Player>,
-}
-
-#[derive(Debug, Clone, Default, Deserialize)]
-#[serde(default)]
 pub struct PlayerResponse {
     pub player: Vec<Player>,
 }
+
+pub type PlayersResponse = PlayerResponse;
 
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
@@ -290,10 +286,6 @@ pub struct PlayerSearchParams {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub tournament: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub tourpos: Option<i64>,
 }
 

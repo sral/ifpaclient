@@ -10,7 +10,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-ifpaclient = "0.1.2"
+ifpaclient = "0.1.3"
 tokio = { version = "1", features = ["full"] }
 ```
 
