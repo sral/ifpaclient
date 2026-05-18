@@ -21,10 +21,6 @@ pub struct Series {
 #[derive(Debug, Clone, Default, Serialize)]
 pub struct SeriesYearParams {
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub year: Option<i64>,
 }
 
@@ -49,10 +45,6 @@ pub struct ActiveRegion {
 #[derive(Debug, Clone, Default, Serialize)]
 pub struct PlayerCardParams {
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub year: Option<i64>,
     pub region_code: String,
 }
@@ -144,10 +136,6 @@ pub struct CurrentLeader {
 #[derive(Debug, Clone, Default, Serialize)]
 pub struct SeriesRegionParams {
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub year: Option<i64>,
     pub region_code: String,
 }

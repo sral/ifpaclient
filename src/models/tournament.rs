@@ -217,16 +217,8 @@ pub struct TournamentSearchParams {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub event_type: Option<EventType>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub start_pos: Option<i64>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub total: Option<i64>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub director_name: Option<String>,

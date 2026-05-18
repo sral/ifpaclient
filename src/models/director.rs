@@ -127,10 +127,6 @@ pub struct DirectorSearchParams {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(
-        deserialize_with = "crate::serde_util::optional_string_or_i64",
-        default
-    )]
     pub count: Option<i64>,
 }
 
